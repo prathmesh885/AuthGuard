@@ -1,0 +1,25 @@
+<div class="form">
+    <div class="form-group">
+        <label for="pname">Product Name</label>
+        <input type="text" #pname [disabled]="!canEditProduct" [value]="productDetails?.pname" id="pname"
+            class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="pstatus">Product Status</label>
+        <select id="pstatus" #pstatus class="form-control" [disabled]="!canEditProduct"
+            [value]="productDetails?.pStatus">
+            <option value="In Progress">
+                {{productStatus.inProgress}}
+            </option>
+            <option value="Dispatched">
+                {{productStatus.dispatched}}
+            </option>
+            <option value="Delivered">
+                {{productStatus.delivered}}
+            </option>
+        </select>
+        <div>
+            <button class="btn btn-primary mt-4" (click)="onProductUpdate(pname,pstatus)">Update</button>
+        </div>
+    </div>
+</div>  
